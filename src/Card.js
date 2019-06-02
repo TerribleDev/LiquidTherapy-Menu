@@ -14,7 +14,8 @@ const useStyles = makeStyles({
     marginBottom: "1rem"
   },
   inHouse: {
-    //   backgroundColor: '#2bfc58'
+    fontSize: 14,
+    color: '#00ad26'
   },
   bullet: {
     display: "inline-block",
@@ -27,7 +28,8 @@ const useStyles = makeStyles({
   btmBox: {
     padding: "1rem",
     display: "flex",
-    flexDirection: "row"
+    flexDirection: "row",
+    justifyContent: 'space-between'
   },
   spacer: {
     flexGrow: 1
@@ -40,7 +42,7 @@ const useStyles = makeStyles({
     marginBottom: 12
   },
   header: {
-      height: '3rem'
+    height: "3rem"
   }
 });
 
@@ -50,7 +52,7 @@ function SimpleCard({ name, number, inHouse, isNitro, desc, abv }) {
 
   return (
     <Card
-      className={clsx({ [classes.card]: true, [classes.inHouse]: inHouse })}
+      className={clsx({ [classes.card]: true})}
     >
       <CardContent>
         <Typography
@@ -77,7 +79,15 @@ function SimpleCard({ name, number, inHouse, isNitro, desc, abv }) {
             ABV: {abv}%
           </Typography>
         )}
-        <div className={classes.spacer} />
+        {inHouse && (
+          <Typography
+            className={classes.inHouse}
+            color="textSecondary"
+            gutterBottom
+          >
+            IN HOUSE
+          </Typography>
+        )}
         {isNitro && (
           <Typography
             className={classes.nitro}

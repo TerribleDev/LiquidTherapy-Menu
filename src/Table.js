@@ -13,7 +13,6 @@ export default function Table() {
   const styles = useStyles();
   console.log(styles);
   const cards = beers
-    .filter(i => i.inHouse)
     .map((i, index) => (
       <Card key={`${i.name}-${index}`} number={index + 1} {...i} />
     ));
